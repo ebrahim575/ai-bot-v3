@@ -1,13 +1,18 @@
 import speech_recognition as sr
 listener = sr.Recognizer()
+while(1):
+    try:
+        with sr.Microphone() as source:
+            print('Listening...')
+            voice = listener.listen(source)
+            words = listener.recognize_google(voice)
+            print(words)
 
-print('yo')
-try:
-    with sr.Microphone() as source:
-        print('Listening...')
-        voice = listener.listen(source)
-        words = listener.recognize_google(voice)
-        print(words)
-except:
-    pass
+            f = open('output.txt','a')
+            f.write(words + '\n')
+            f.close()
+    except:
+        print('Except executed')
+        pass
+
 
