@@ -7,8 +7,7 @@ while(1):
             voice = listener.listen(source)
             words = listener.recognize_google(voice)
             print(words)
-
-            f = open('output.txt','a')
+            f = open('output2.txt','a')
             f.write(words + '\n')
             f.close()
     except:
